@@ -3,7 +3,7 @@
 Proyecto de portafolio: conecta tres APIs publicas y oficiales de Chile
 (Banco Central, CMF Bancos e INE) para descargar indicadores economicos
 reales, y los deja versionados en este mismo repositorio, actualizados
-automaticamente cada semana.
+automaticamente todos los dias.
 
 ## Por que este proyecto
 
@@ -39,12 +39,30 @@ src/banco_central.py   -> TPM, dolar observado, Imacec, IPC (via libreria bcchap
 src/cmf.py              -> Dolar, UF, UTM del dia (API CMF Bancos / ex SBIF)
 src/ine_sdmx.py         -> Catalogo de series INE + desocupados por region/sexo (SDMX)
 src/main.py             -> ejecuta las tres fuentes y guarda todo en /data
-.github/workflows/      -> actualiza /data automaticamente cada semana (GitHub Actions)
+.github/workflows/      -> actualiza /data automaticamente todos los dias (GitHub Actions)
+analisis/                -> Excel y Power BI con los analisis (trabajo propio, ver seccion siguiente)
 ```
 
 Cada conector es independiente: si falta una credencial o una fuente falla,
 las otras dos igual se ejecutan y `main.py` lo indica claramente en el
 resumen final, en vez de detener todo el proceso.
+
+## Que se hizo con ayuda de IA, y que es trabajo propio
+
+Para que quede claro y sin ambiguedad:
+
+| Parte del proyecto | Como se hizo |
+|---|---|
+| Conectores a las APIs (`src/banco_central.py`, `src/cmf.py`, `src/ine_sdmx.py`, `src/main.py`) | Con ayuda de IA (Claude) |
+| Automatizacion diaria (`.github/workflows/actualizar_datos.yml`) | Con ayuda de IA (Claude) |
+| Limpieza de los datos crudos (regiones, sexo, fechas, tipos) | Trabajo propio, en Excel (Power Query) |
+| Los 6 analisis (TPM, TPM vs. dolar, TPM vs. IPC, volatilidad del dolar, desocupacion regional por sexo, indices normalizados) | Trabajo propio, en Excel y Power BI |
+| El dashboard (`analisis/`) | Trabajo propio |
+
+La IA se uso puntualmente donde acorta trabajo repetitivo y mecanico
+(escribir el codigo que llama a cada API, y la automatizacion). El analisis
+en si —que datos cruzar, como limpiarlos y que conclusiones sacar— es
+trabajo propio, aprendido paso a paso en Excel y Power BI.
 
 ## Datos publicados en `/data`
 
@@ -86,7 +104,7 @@ Los resultados quedan en la carpeta `data/`.
 
 ## Automatizacion (GitHub Actions)
 
-El workflow `.github/workflows/actualizar_datos.yml` corre todos los lunes
+El workflow `.github/workflows/actualizar_datos.yml` corre todos los dias
 y tambien se puede lanzar manualmente desde la pestana **Actions** del
 repositorio. Para que funcione en GitHub (no solo en local), hay que cargar
 las credenciales como *Secrets* del repositorio:
@@ -125,7 +143,7 @@ El INE no necesita secreto porque su API es publica.
    ```
 
 4. Configurar los *Secrets* del paso anterior para que la actualizacion
-   semanal automatica funcione sin intervencion manual.
+   diaria automatica funcione sin intervencion manual.
 5. Copiar la URL del repositorio (`https://github.com/<tu-usuario>/portafolio-apis-economicas-chile`)
    y usarla como link en el curriculum — el repositorio publico ya incluye
    codigo, datos y esta documentacion, sin necesidad de adjuntar nada mas.
@@ -139,7 +157,7 @@ El INE no necesita secreto porque su API es publica.
   implementado todavia.
 - El conector CMF solo trae el valor vigente del dia de cada indicador; un
   historico propio se va construyendo automaticamente cada vez que corre el
-  workflow semanal (por eso `cmf_indicadores.csv` se acumula en vez de
+  workflow diario (por eso `cmf_indicadores.csv` se acumula en vez de
   sobrescribirse).
 - No se hizo ningun tipo de scraping ni se inventaron endpoints: los tres
   conectores usan unicamente APIs oficiales y documentadas publicamente.
