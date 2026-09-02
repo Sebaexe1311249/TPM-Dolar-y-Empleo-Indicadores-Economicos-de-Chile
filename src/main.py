@@ -61,7 +61,10 @@ def ejecutar_ine(resumen: dict) -> None:
         datos = ine_sdmx.obtener_datos("DF_DES_SEXO", desde="2023-01")
         datos.to_csv(CARPETA_DATA / "ine_desocupados_regional_sexo.csv", index=False)
 
-        resumen["INE"] = f"OK ({len(catalogo)} dataflows catalogados, {len(datos)} filas de datos)"
+        tasas = ine_sdmx.obtener_datos("DF_TDES_SEXO", desde="2023-01")
+        tasas.to_csv(CARPETA_DATA / "ine_tasa_desocupacion_regional_sexo.csv", index=False)
+
+        resumen["INE"] = f"OK ({len(catalogo)} dataflows catalogados, {len(datos) + len(tasas)} filas de datos)"
     except Exception as error:  # noqa: BLE001
         resumen["INE"] = f"ERROR: {error}"
 

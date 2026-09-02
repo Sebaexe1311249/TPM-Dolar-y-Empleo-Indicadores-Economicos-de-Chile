@@ -53,6 +53,7 @@ resumen final, en vez de detener todo el proceso.
 | `cmf_indicadores.csv` | Dolar, UF y UTM, con fecha de consulta (se acumula en cada corrida) |
 | `ine_catalogo_dataflows.csv` | Catalogo completo de series disponibles en el SDMX del INE |
 | `ine_desocupados_regional_sexo.csv` | Personas desocupadas estimadas, por region y sexo (ENE) |
+| `ine_tasa_desocupacion_regional_sexo.csv` | Tasa de desocupacion (%), por region y sexo (ENE) |
 
 Estos archivos se generan corriendo el proyecto localmente o via GitHub
 Actions; no se incluyen datos falsos ni de ejemplo en el repositorio.
@@ -100,10 +101,8 @@ El INE no necesita secreto porque su API es publica.
 ## Limitaciones y proximos pasos
 
 - `ine_desocupados_regional_sexo.csv` entrega personas desocupadas
-  estimadas por region y sexo, no una tasa nacional unica. Para una tasa de
-  desocupacion nacional habria que cruzar este dataflow con el de fuerza de
-  trabajo (`DF_FDT_SEXO`) — queda documentado como extension futura, no
-  implementado todavia.
+  estimadas (cantidad) por region y sexo; `ine_tasa_desocupacion_regional_sexo.csv`
+  entrega la tasa (%) equivalente, tambien por region y sexo.
 - El conector CMF solo trae el valor vigente del dia de cada indicador; un
   historico propio se va construyendo automaticamente cada vez que corre el
   workflow diario (por eso `cmf_indicadores.csv` se acumula en vez de
