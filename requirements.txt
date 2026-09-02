@@ -1,0 +1,4 @@
+bcchapi
+pandas
+requests
+python-dotenv

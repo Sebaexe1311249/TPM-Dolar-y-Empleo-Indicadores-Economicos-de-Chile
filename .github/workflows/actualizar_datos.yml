@@ -1,0 +1,36 @@
+name: Actualizar datos economicos
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"  # todos los lunes 13:00 UTC (~10:00 Chile)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar conectores
+        env:
+          BCCH_API_TOKEN: ${{ secrets.BCCH_API_TOKEN }}
+          CMF_API_KEY: ${{ secrets.CMF_API_KEY }}
+        run: python src/main.py
+
+      - name: Commitear datos actualizados (si hay cambios)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Actualizacion automatica de datos economicos"
+          git push
