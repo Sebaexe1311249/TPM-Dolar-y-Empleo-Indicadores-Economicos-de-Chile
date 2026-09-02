@@ -54,6 +54,7 @@ resumen final, en vez de detener todo el proceso.
 | `ine_catalogo_dataflows.csv` | Catalogo completo de series disponibles en el SDMX del INE |
 | `ine_desocupados_regional_sexo.csv` | Personas desocupadas estimadas, por region y sexo (ENE) |
 | `ine_tasa_desocupacion_regional_sexo.csv` | Tasa de desocupacion (%), por region y sexo (ENE) |
+| `ine_tasa_participacion_regional_sexo.csv` | Tasa de participacion laboral (%), por region y sexo (ENE) |
 
 Estos archivos se generan corriendo el proyecto localmente o via GitHub
 Actions; no se incluyen datos falsos ni de ejemplo en el repositorio.
