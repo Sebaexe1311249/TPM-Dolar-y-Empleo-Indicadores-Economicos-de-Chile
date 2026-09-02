@@ -16,11 +16,16 @@ import pandas as pd
 
 # Codigos de serie reales y verificados en la Base de Datos Estadisticos.
 # Puedes buscar mas series con `siete.buscar("palabra clave")`.
+#
+# ipc_indice: la serie original con base 2018 (G073.IPC.IND.2018.M) dejo de
+# publicarse tras diciembre de 2023, cuando el INE cambio la base del IPC a
+# 2023=100. Se uso en su lugar la serie empalmada oficial del Banco Central,
+# que une ambas bases en una sola serie continua sin cortes.
 SERIES_BCCH = {
     "tpm": ("F022.TPM.TIN.D001.NO.Z.D", "Tasa de Politica Monetaria (%)"),
     "dolar_observado": ("F073.TCO.PRE.Z.D", "Dolar observado (CLP por USD)"),
     "imacec": ("F032.IMC.IND.Z.Z.EP18.Z.Z.0.M", "Imacec (indice, base 2018)"),
-    "ipc_indice": ("G073.IPC.IND.2018.M", "Indice de Precios al Consumidor, mensual (base 2018=100)"),
+    "ipc_indice": ("F074.IPC.IND.Z.EP23.C.M", "Indice de Precios al Consumidor, mensual (serie empalmada, base 2023=100)"),
 }
 
 
