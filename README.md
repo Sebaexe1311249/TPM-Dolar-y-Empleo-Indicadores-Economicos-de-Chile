@@ -47,11 +47,9 @@ Cada conector es independiente: si falta una credencial o una fuente falla,
 las otras dos igual se ejecutan y `main.py` lo indica claramente en el
 resumen final, en vez de detener todo el proceso.
 
-## Que se hizo con ayuda de IA, y que es trabajo propio
+## Alcance del proyecto
 
-Para que quede claro y sin ambiguedad:
-
-| Parte del proyecto | Como se hizo |
+| Parte del proyecto | Como se construyo |
 |---|---|
 | Conectores a las APIs (`src/banco_central.py`, `src/cmf.py`, `src/ine_sdmx.py`, `src/main.py`) | Con ayuda de IA (Claude) |
 | Automatizacion diaria (`.github/workflows/actualizar_datos.yml`) | Con ayuda de IA (Claude) |
@@ -59,10 +57,10 @@ Para que quede claro y sin ambiguedad:
 | Los 6 analisis (TPM, TPM vs. dolar, TPM vs. IPC, volatilidad del dolar, desocupacion regional por sexo, indices normalizados) | Trabajo propio, en Excel y Power BI |
 | El dashboard (`analisis/`) | Trabajo propio |
 
-La IA se uso puntualmente donde acorta trabajo repetitivo y mecanico
-(escribir el codigo que llama a cada API, y la automatizacion). El analisis
-en si —que datos cruzar, como limpiarlos y que conclusiones sacar— es
-trabajo propio, aprendido paso a paso en Excel y Power BI.
+La IA se uso puntualmente donde acorta trabajo repetitivo y mecanico:
+escribir el codigo que llama a cada API y la automatizacion diaria. El
+analisis en si —que datos cruzar, como limpiarlos y que conclusiones
+sacar— es trabajo propio, construido directamente en Excel y Power BI.
 
 ## Datos publicados en `/data`
 
