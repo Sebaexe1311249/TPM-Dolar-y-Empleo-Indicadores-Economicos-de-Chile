@@ -1,4 +1,4 @@
-# Indicadores economicos de Chile via API (Banco Central, CMF, INE)
+# TPM, Dolar y Empleo: Indicadores Economicos de Chile
 
 Conecta tres APIs publicas y oficiales de Chile (Banco Central, CMF Bancos
 e INE) para descargar indicadores economicos reales, y los deja
