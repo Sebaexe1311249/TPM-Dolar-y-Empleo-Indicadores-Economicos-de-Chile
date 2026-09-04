@@ -2,8 +2,8 @@
 
 El archivo [`analisis/analisis_datoseconomicos_v1.xlsx`](analisis/analisis_datoseconomicos_v1.xlsx)
 contiene el modelo de datos y los indicadores calculados a partir de las
-fuentes descritas mas abajo. Esta previsto incorporar un dashboard
-interactivo en Power BI con la misma informacion.
+fuentes descritas mas abajo. El dashboard interactivo en Power BI ya esta
+construido y disponible para descargar desde este mismo repositorio.
 
 Conecta tres APIs publicas y oficiales de Chile (Banco Central, CMF Bancos
 e INE) para descargar indicadores economicos reales, y los deja
@@ -49,6 +49,24 @@ resumen final, en vez de detener todo el proceso.
 | Automatizacion diaria (`.github/workflows/`) | Actualiza los datos todos los dias, sin intervencion manual |
 | Limpieza de datos | En Excel (Power Query): tipos, regiones, sexo, fechas |
 | Analisis (`analisis/`) | TPM, TPM vs. dolar, TPM vs. IPC, volatilidad del dolar, desocupacion regional por sexo, indices normalizados — en Excel y Power BI |
+
+## Dashboard interactivo (Power BI)
+
+El dashboard consolida visualmente los indicadores del repositorio (TPM,
+dolar, Imacec, IPC y desocupacion regional) en dos paginas. "Panorama
+Macro" muestra la evolucion de la TPM, el dolar, la inflacion y el Imacec;
+"Mercado Laboral" presenta un mapa de desocupacion por region, la brecha
+de genero y un ranking regional de personas desocupadas.
+
+### Panorama Macro
+
+![Panorama Macro](screenshots/panorama-macro.png)
+
+### Mercado Laboral
+
+![Mercado Laboral](screenshots/mercado-laboral.png)
+
+**[Descargar el dashboard (.pbix)](analisis/Indicadores_Economicos_Chile.pbix)**
 
 ## Datos publicados en `/data`
 
