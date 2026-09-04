@@ -1,9 +1,13 @@
 # TPM, Dolar y Empleo: Indicadores Economicos de Chile
 
+![Panorama Macro](screenshots/panorama-macro.png)
+![Mercado Laboral](screenshots/mercado-laboral.png)
+
 El archivo [`analisis/analisis_datoseconomicos_v1.xlsx`](analisis/analisis_datoseconomicos_v1.xlsx)
 contiene el modelo de datos y los indicadores calculados a partir de las
 fuentes descritas mas abajo. El dashboard interactivo en Power BI ya esta
-construido y disponible para descargar desde este mismo repositorio.
+construido y disponible para descargar desde este mismo repositorio:
+**[Descargar el dashboard (.pbix)](analisis/Indicadores_Economicos_Chile.pbix)**.
 
 Conecta tres APIs publicas y oficiales de Chile (Banco Central, CMF Bancos
 e INE) para descargar indicadores economicos reales, y los deja
