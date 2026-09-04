@@ -72,6 +72,13 @@ de genero y un ranking regional de personas desocupadas.
 
 **[Descargar el dashboard (.pbix)](analisis/Indicadores_Economicos_Chile.pbix)**
 
+Los datos en `/data` se actualizan automaticamente todos los dias a las
+13:00 UTC (aprox. 10:00 hora de Chile) mediante GitHub Actions. Esa
+actualizacion llega directo al repositorio y al Excel (via Power Query);
+el archivo `.pbix` no se refresca solo, hay que abrirlo en Power BI
+Desktop y actualizar la conexion manualmente para traer los datos mas
+recientes.
+
 ## Datos publicados en `/data`
 
 | Archivo | Contenido |
