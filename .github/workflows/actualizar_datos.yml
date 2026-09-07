@@ -2,7 +2,9 @@ name: Actualizar datos economicos
 
 on:
   schedule:
-    - cron: "0 13 * * *"  # todos los dias, 13:00 UTC (~10:00 Chile)
+    - cron: "7 4,10,22 * * *"
+      timezone: "America/Santiago"
+
   workflow_dispatch: {}
 
 permissions:
